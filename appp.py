@@ -2364,11 +2364,11 @@ with tab4:
         # Add user message
         st.session_state.chat_history.append({"role": "user", "content": question})
         
- if question:
-    with st.spinner("AI is thinking..."):
-        if OLLAMA_AVAILABLE:
-            try:
-                response = ollama.chat(
+    if question:
+       with st.spinner("AI is thinking..."):
+           if OLLAMA_AVAILABLE:
+               try:
+                   response = ollama.chat(
                     model="phi3",
                     messages=[
                         {
