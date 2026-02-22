@@ -2369,28 +2369,28 @@ with tab4:
            if OLLAMA_AVAILABLE:
                try:
                    response = ollama.chat(
-                    model="phi3",
-                    messages=[
-                        {
-                            "role": "system",
-                            "content": "You are a helpful medical assistant. Provide concise, accurate health information. Always advise consulting a doctor for medical decisions."
-                        },
-                        {"role": "user", "content": question}
-                    ],
-                    options={"num_predict": 250}
-                )
+                       model="phi3",
+                       messages=[
+                           {
+                               "role": "system",
+                               "content": "You are a helpful medical assistant. Provide concise, accurate health information. Always advise consulting a doctor for medical decisions."
+                           },   
+                           {"role": "user", "content": question}
+                       ],
+                       options={"num_predict": 250}
+                   )
 
-                answer = response["message"]["content"]
+                   answer = response["message"]["content"]
                
-                st.session_state.chat_history.append(
-                    {"role": "assistant", "content": answer}
-                )
-                st.rerun()
+                   st.session_state.chat_history.append(
+                       {"role": "assistant", "content": answer}
+                   )
+                   st.rerun()
 
-            except Exception as e:
-                st.error(f"Error: {e}")
-        else:
-            st.warning("🤖 AI assistant works only in local version.")
+               except Exception as e:
+                   st.error(f"Error: {e}")
+           else:
+               st.warning("🤖 AI assistant works only in local version.")
     
     # Section 6: Additional Services
     st.markdown("---")
