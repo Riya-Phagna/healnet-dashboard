@@ -6,7 +6,6 @@ import json
 from pathlib import Path
 import os
 import streamlit as st
-import ollama
 import matplotlib.pyplot as plt
 from sklearn.linear_model import LinearRegression
 import sqlite3
@@ -18,7 +17,12 @@ import altair as alt
 from datetime import datetime
 from PIL import Image
 import streamlit as st
-
+# Safe Ollama import
+try:
+    import ollama
+    OLLAMA_AVAILABLE = True
+except Exception:
+    OLLAMA_AVAILABLE = False
 import urllib.parse
 CLIENT_ID = "23V288"
 CLIENT_SECRET = "65024027d5fbfc604e53f9c12d097c8c"
@@ -2360,24 +2364,29 @@ with tab4:
         # Add user message
         st.session_state.chat_history.append({"role": "user", "content": question})
         
-        with st.spinner("AI is thinking..."):
-            try:
-                response = ollama.chat(
-                    model="phi3",
-                    messages=[
-                        {"role": "system", "content": "You are a helpful medical assistant. Provide concise, accurate health information. Always advise consulting a doctor for medical decisions."},
-                        {"role": "user", "content": question}
-                    ],
-                    options={"num_predict": 250}
-                )
-                
-                answer = response["message"]["content"]
-                st.session_state.chat_history.append({"role": "assistant", "content": answer})
-                st.rerun()
-                
-            except Exception as e:
-                st.error(f"Error: {e}")
-                st.info("💡 Make sure Ollama is running with: ollama run phi3")
+       with st.spinner("AI is thinking..."):
+    if OLLAMA_AVAILABLE:
+        try:
+            response = ollama.chat(
+                model="phi3",
+                messages=[
+                    {"role": "system", "content": "You are a helpful medical assistant. Provide concise, accurate health information. Always advise consulting a doctor for medical decisions."},
+                    {"role": "user", "content": question}
+                ],
+                options={"num_predict": 250}
+            )
+
+            answer = response["message"]["content"]
+            st.session_state.chat_history.append(
+                {"role": "assistant", "content": answer}
+            )
+            st.rerun()
+
+        except Exception as e:
+            st.error(f"Error: {e}")
+
+    else:
+        st.warning("🤖 AI assistant works only in local version.")
     
     # Section 6: Additional Services
     st.markdown("---")
