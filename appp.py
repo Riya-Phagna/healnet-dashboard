@@ -285,18 +285,16 @@ label {
     color: #FFFFFF !important;
 }
 
-/* Improve small helper text */
-    .css-1cpxqw2, .css-10trblm {
-    padding-top: 2rem;
+/* Improve helper text — SAFE selector */
+[data-testid="stWidgetLabelHelp"] {
     color: #E2E8F0 !important;
 }
 
 /* Fix metric titles */
 [data-testid="stMetricLabel"] {
     color: #FFFFFF !important;
+    padding-top: 2rem;
 }
-
-
 
 </style>
 """, unsafe_allow_html=True)
