@@ -285,7 +285,7 @@ label {
     color: #FFFFFF !important;
 }
 
-/* Improve helper text — SAFE selector */
+/* Improve helper text - SAFE selector */
 [data-testid="stWidgetLabelHelp"] {
     color: #E2E8F0 !important;
 }
@@ -298,7 +298,6 @@ label {
 
 </style>
 """, unsafe_allow_html=True)
-    
 
 # ================================================
 # PROFESSIONAL STYLING
