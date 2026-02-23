@@ -50,94 +50,108 @@ if "logged_in" not in st.session_state:
     st.session_state["logged_in"] = False
 
 # ===============================
-# LOGIN PAGE
-# ===============================
-# ================= LOGIN PAGE =================
-import base64
-from pathlib import Path
+import streamlit as st
 
-# ---------- helper to load background ----------
-def get_base64_image(image_path):
-    try:
-        with open(image_path, "rb") as f:
-            return base64.b64encode(f.read()).decode()
-    except Exception:
-        return None
+st.set_page_config(page_title="HealNet Login", layout="centered")
 
-# ---------- login check ----------
-if not st.session_state.get("logged_in", False):
+# ---------- Custom CSS ----------
+st.markdown("""
+<style>
 
-    # ====== LOAD BACKGROUND IMAGE ======
-    img_path = Path("assets/healnet_login.jfif")  # your file name
-    img_base64 = get_base64_image(img_path)
+/* Background */
+.stApp {
+    background: radial-gradient(circle at top left, #0b2a4a, #081b33);
+}
 
-    if img_base64:
-        st.markdown(f"""
-        <style>
-        .stApp {{
-            background: url("data:image/jfif;base64,{img_base64}");
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-        }}
+/* Glass card */
+.login-card {
+    background: rgba(255, 255, 255, 0.06);
+    padding: 40px;
+    border-radius: 20px;
+    backdrop-filter: blur(14px);
+    border: 1px solid rgba(255,255,255,0.12);
+    box-shadow: 0 0 25px rgba(0,0,0,0.35);
+    max-width: 420px;
+    margin: auto;
+}
 
-        /* glass login card */
-        .login-card {{
-            background: rgba(255,255,255,0.12);
-            backdrop-filter: blur(14px);
-            padding: 40px;
-            border-radius: 20px;
-            width: 400px;
-            margin: auto;
-            margin-top: 80px;
-            box-shadow: 0 8px 32px rgba(0,0,0,0.25);
-        }}
+/* Title */
+.title-text {
+    text-align: center;
+    font-size: 34px;
+    font-weight: 700;
+    color: #5cc8ff;
+    margin-bottom: 5px;
+}
 
-        .login-title {{
-            text-align: center;
-            color: white;
-            font-size: 28px;
-            font-weight: 600;
-            margin-bottom: 25px;
-        }}
-        </style>
-        """, unsafe_allow_html=True)
+/* Subtitle */
+.subtitle-text {
+    text-align: center;
+    color: #cfd8dc;
+    font-size: 14px;
+    margin-bottom: 30px;
+}
+
+/* Input boxes */
+.stTextInput>div>div>input {
+    background-color: rgba(255,255,255,0.08);
+    color: white;
+    border-radius: 10px;
+    border: 1px solid rgba(255,255,255,0.15);
+    padding: 10px;
+}
+
+/* Login button */
+.stButton>button {
+    width: 100%;
+    border-radius: 12px;
+    height: 45px;
+    font-weight: 600;
+    font-size: 16px;
+    color: white;
+    border: none;
+    background: linear-gradient(90deg, #00c6ff, #4ade80);
+    transition: 0.3s ease;
+}
+
+.stButton>button:hover {
+    transform: scale(1.03);
+    box-shadow: 0 0 15px rgba(0,198,255,0.6);
+}
+
+.footer-text {
+    text-align: center;
+    color: #9fb3c8;
+    font-size: 12px;
+    margin-top: 20px;
+}
+
+</style>
+""", unsafe_allow_html=True)
+
+# ---------- Login Card ----------
+st.markdown('<div class="login-card">', unsafe_allow_html=True)
+
+st.markdown('<div class="title-text">HealNet</div>', unsafe_allow_html=True)
+st.markdown(
+    '<div class="subtitle-text">PREDICT. PREVENT. PERSONALIZE.<br>'
+    'Advanced Health Risk Analysis Platform</div>',
+    unsafe_allow_html=True
+)
+
+username = st.text_input("Username")
+email = st.text_input("Email Address")
+
+login_btn = st.button("LOGIN")
+
+if login_btn:
+    if username and email:
+        st.success("Login successful!")
     else:
-        st.warning("⚠️ Login image not found in assets folder")
+        st.error("Please fill all fields.")
 
-    # ====== LOGIN CARD START ======
-    st.markdown('<div class="login-card">', unsafe_allow_html=True)
-    st.markdown('<div class="login-title">🔐 HealNet Login</div>', unsafe_allow_html=True)
-
-    name = st.text_input("Username *", key="login_fullname")
-    email = st.text_input("Email ID *", key="login_email")
-
-    login_btn = st.button("Login", use_container_width=True)
-
-    if login_btn:
-        if not name.strip():
-            st.error("Name is required")
-        elif not email.strip():
-            st.error("Email is required")
-        else:
-            try:
-                cursor.execute(
-                    "INSERT OR IGNORE INTO users (name, email) VALUES (?, ?)",
-                    (name, email)
-                )
-                conn.commit()
-
-                st.session_state["logged_in"] = True
-                st.session_state["user_name"] = name
-                st.rerun()
-
-            except Exception:
-                st.error("Login failed")
-
-    st.markdown('</div>', unsafe_allow_html=True)
-
-    st.stop()
-
+st.markdown('<div class="footer-text">Made by IOTrenetics</div>', unsafe_allow_html=True)
+st.markdown('</div>', unsafe_allow_html=True)
 st.markdown("""
 <style>
 
