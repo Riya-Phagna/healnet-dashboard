@@ -140,11 +140,27 @@ st.markdown("""
 
 
 # ================= LOGIN PAGE =================
+def main_app():
+    st.title("🏥 Welcome to HealNet Dashboard")
+    st.success("You are logged in!")
+
+    if st.button("Logout"):
+        st.session_state.logged_in = False
+        st.rerun()
+
+    # ✅ PUT YOUR ENTIRE DASHBOARD BELOW THIS
+    # sidebar
+    # metrics
+    # charts
+    # everything
+# ================= ROUTER =================
+
 if not st.session_state.logged_in:
 
     st.markdown('<div class="login-card">', unsafe_allow_html=True)
 
     st.markdown('<div class="title-text">HealNet</div>', unsafe_allow_html=True)
+
     st.markdown(
         '<div class="subtitle-text">PREDICT. PREVENT. PERSONALIZE.<br>'
         'Advanced Health Risk Analysis Platform</div>',
@@ -166,15 +182,9 @@ if not st.session_state.logged_in:
     st.markdown('<div class="footer-text">Made by IOTrenetics</div>', unsafe_allow_html=True)
     st.markdown('</div>', unsafe_allow_html=True)
 
-#================ MAIN APP =================
+# ================= MAIN APP =================
 else:
-    st.title("🏥 Welcome to HealNet Dashboard")
-    st.success("You are logged in!")
-
-    if st.button("Logout"):
-        st.session_state.logged_in = False
-        st.rerun()
-
+    main_app()
 # ===== Fix grey text visibility ===== 
 st.markdown("""
 <style>
