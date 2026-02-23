@@ -286,7 +286,7 @@ label {
 }
 
 /* Improve small helper text */
-.css-1cpxqw2, .css-10trblm {
+css-1cpxqw2, .css-10trblm {
     color: #E2E8F0 !important;
 }
 
