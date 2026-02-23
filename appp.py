@@ -279,29 +279,41 @@ label {
 # ================================================
 # PROFESSIONAL STYLING
 # ================================================
-st.markdown("""
+# ============================================
+# PROFESSIONAL STYLING
+# ============================================
+
+st.markdown(
+    """
 <style>
-    /* Import Professional Fonts */
-    @import url('https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap');
-    
-    /* Root Variables */
-    :root {
-        --primary-color: #2D5BFF;
-        --secondary-color: #00D9C0;
-        --accent-color: #FF6B9D;
-        --dark-bg: #0A0E27;
-        --card-bg: #141B3D;
-        --text-primary: #FFFFFF;
-        --text-secondary: #A0AEC0;
-        --success-color: #00D9C0;
-        --warning-color: #FFB800;
-        --danger-color: #FF4757;
-        --gradient-1: linear-gradient(135deg, #2D5BFF 0%, #00D9C0 100%);
-        --gradient-2: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        --gradient-3: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-    }
-    </style>
-    """, unsafe_allow_html=True)                                 
+
+/* Import Professional Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap');
+
+/* Root Variables */
+:root {
+    --primary-color: #2D5BFF;
+    --secondary-color: #00D9C0;
+    --accent-color: #FF6B9D;
+    --dark-bg: #0A0E27;
+    --card-bg: #141B3D;
+
+    --text-primary: #FFFFFF;
+    --text-secondary: #A0AEC0;
+
+    --success-color: #00D9C0;
+    --warning-color: #FFB800;
+    --danger-color: #FF4757;
+
+    --gradient-1: linear-gradient(135deg, #2D5BFF 0%, #00D9C0 100%);
+    --gradient-2: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    --gradient-3: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+}
+
+</style>
+    """,
+    unsafe_allow_html=True,
+)                               
     
     
     
