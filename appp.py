@@ -171,7 +171,7 @@ else:
         st.session_state.logged_in = False
         st.rerun()
 
-/* ===== Fix grey text visibility ===== */
+# ===== Fix grey text visibility ===== 
 body, .stApp {
     color: white !important;
 }
