@@ -54,6 +54,11 @@ import streamlit as st
 
 st.set_page_config(page_title="HealNet Login", layout="centered")
 
+# ---------- Session State ----------
+if "logged_in" not in st.session_state:
+    st.session_state.logged_in = False
+
+
 # ---------- Custom CSS ----------
 st.markdown("""
 <style>
@@ -129,32 +134,43 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-# ---------- Login Card ----------
-st.markdown('<div class="login-card">', unsafe_allow_html=True)
 
-st.markdown('<div class="title-text">HealNet</div>', unsafe_allow_html=True)
-st.markdown(
-    '<div class="subtitle-text">PREDICT. PREVENT. PERSONALIZE.<br>'
-    'Advanced Health Risk Analysis Platform</div>',
-    unsafe_allow_html=True
-)
+# ================= LOGIN PAGE =================
+if not st.session_state.logged_in:
 
-username = st.text_input("Username")
-email = st.text_input("Email Address")
+    st.markdown('<div class="login-card">', unsafe_allow_html=True)
 
-login_btn = st.button("LOGIN")
+    st.markdown('<div class="title-text">HealNet</div>', unsafe_allow_html=True)
+    st.markdown(
+        '<div class="subtitle-text">PREDICT. PREVENT. PERSONALIZE.<br>'
+        'Advanced Health Risk Analysis Platform</div>',
+        unsafe_allow_html=True
+    )
 
-if login_btn:
-    if username and email:
-        st.success("Login successful!")
-    else:
-        st.error("Please fill all fields.")
+    username = st.text_input("Username")
+    email = st.text_input("Email Address")
 
-st.markdown('<div class="footer-text">Made by IOTrenetics</div>', unsafe_allow_html=True)
-st.markdown('</div>', unsafe_allow_html=True)
-st.markdown("""
-<style>
+    login_btn = st.button("LOGIN")
 
+    if login_btn:
+        if username and email:
+            st.session_state.logged_in = True
+            st.rerun()
+        else:
+            st.error("Please fill all fields.")
+
+    st.markdown('<div class="footer-text">Made by IOTrenetics</div>', unsafe_allow_html=True)
+    st.markdown('</div>', unsafe_allow_html=True)
+
+
+# ================= MAIN APP =================
+else:
+    st.title("🏥 Welcome to HealNet Dashboard")
+    st.success("You are logged in!")
+
+    if st.button("Logout"):
+        st.session_state.logged_in = False
+        st.rerun()
 /* ===== Fix grey text visibility ===== */
 body, .stApp {
     color: white !important;
