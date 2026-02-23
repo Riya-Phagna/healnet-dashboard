@@ -319,8 +319,8 @@ st.markdown(
     
   
     
-    st.markdown("""
-    <style>
+st.markdown("""
+<style>
     
     /* Metric boxes - force visible text */
     [data-testid="stMetricValue"],
