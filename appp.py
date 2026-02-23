@@ -275,13 +275,13 @@ label {
 .stSlider label {
     color: #FFFFFF !important;
 }
-
+</style>
+    """,
+    unsafe_allow_html=True,
+)                   
 # ================================================
 # PROFESSIONAL STYLING
 # ================================================
-# ============================================
-# PROFESSIONAL STYLING
-# ============================================
 
 st.markdown(
     """
