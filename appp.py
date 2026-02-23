@@ -300,6 +300,8 @@ st.markdown("""
         --gradient-2: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
         --gradient-3: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
     }
+    </style>
+    """, unsafe_allow_html=True)                                 
     
     
     
