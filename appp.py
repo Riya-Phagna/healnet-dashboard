@@ -162,7 +162,14 @@ if not st.session_state.logged_in:
     st.markdown('<div class="footer-text">Made by IOTrenetics</div>', unsafe_allow_html=True)
     st.markdown('</div>', unsafe_allow_html=True)
 
+================ MAIN APP =================
+else:
+    st.title("🏥 Welcome to HealNet Dashboard")
+    st.success("You are logged in!")
 
+    if st.button("Logout"):
+        st.session_state.logged_in = False
+        st.rerun()
 
 /* ===== Fix grey text visibility ===== */
 body, .stApp {
@@ -266,30 +273,6 @@ label {
 .stSlider label {
     color: #FFFFFF !important;
 }
-
-/* Number input labels */
-.stNumberInput label {
-    color: #FFFFFF !important;
-}
-
-/* Selectbox labels */
-.stSelectbox label {
-    color: #FFFFFF !important;
-}
-
-/* Improve helper text */
-[data-testid="stWidgetLabelHelp"] {
-    color: #E2E8F0 !important;
-}
-
-/* Fix metric titles */
-[data-testid="stMetricLabel"] {
-    color: #FFFFFF !important;
-    padding-top: 2rem;
-}
-
-</style>
-""", unsafe_allow_html=True)
 
 # ================================================
 # PROFESSIONAL STYLING
