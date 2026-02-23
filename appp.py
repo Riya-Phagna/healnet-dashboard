@@ -260,44 +260,47 @@ st.set_page_config(
     layout="wide",
     initial_sidebar_state="expanded"
 )
+st.markdown(
+    """
+    <style>
 
-st.markdown("""
-<style>
+    /* Make all labels white */
+    label {
+        color: #FFFFFF !important;
+        font-weight: 500;
+    }
 
-/* Make all labels white */
-label {
-    color: #FFFFFF !important;
-    font-weight: 500;
-}
+    /* Slider labels */
+    .stSlider label {
+        color: #FFFFFF !important;
+    }
 
-/* Slider labels */
-.stSlider label {
-    color: #FFFFFF !important;
-}
+    /* Number input labels */
+    .stNumberInput label {
+        color: #FFFFFF !important;
+    }
 
-/* Number input labels */
-.stNumberInput label {
-    color: #FFFFFF !important;
-}
+    /* Selectbox labels */
+    .stSelectbox label {
+        color: #FFFFFF !important;
+    }
 
-/* Selectbox labels */
-.stSelectbox label {
-    color: #FFFFFF !important;
-}
+    /* Improve helper text */
+    [data-testid="stWidgetLabelHelp"] {
+        color: #E2E8F0 !important;
+    }
 
-/* Improve helper text - SAFE selector */
-[data-testid="stWidgetLabelHelp"] {
-    color: #E2E8F0 !important;
-}
+    /* Fix metric titles */
+    [data-testid="stMetricLabel"] {
+        color: #FFFFFF !important;
+        padding-top: 2rem;
+    }
 
-/* Fix metric titles */
-[data-testid="stMetricLabel"] {
-    color: #FFFFFF !important;
-    padding-top: 2rem;
-}
+    </style>
+    """,
+    unsafe_allow_html=True,
+)
 
-</style>
-""", unsafe_allow_html=True)
 
 # ================================================
 # PROFESSIONAL STYLING
