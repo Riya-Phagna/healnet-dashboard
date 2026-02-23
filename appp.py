@@ -319,7 +319,8 @@ st.markdown(
     
   
     
-    #===== CRITICAL: FORCE TEXT VISIBILITY IN ALL COMPONENTS ===== 
+    st.markdown("""
+    <style>
     
     /* Metric boxes - force visible text */
     [data-testid="stMetricValue"],
