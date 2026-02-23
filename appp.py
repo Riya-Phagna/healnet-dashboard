@@ -163,14 +163,7 @@ if not st.session_state.logged_in:
     st.markdown('</div>', unsafe_allow_html=True)
 
 
-# ================= MAIN APP =================
-else:
-    st.title("🏥 Welcome to HealNet Dashboard")
-    st.success("You are logged in!")
 
-    if st.button("Logout"):
-        st.session_state.logged_in = False
-        st.rerun()
 /* ===== Fix grey text visibility ===== */
 body, .stApp {
     color: white !important;
