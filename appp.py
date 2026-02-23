@@ -162,7 +162,7 @@ if not st.session_state.logged_in:
     st.markdown('<div class="footer-text">Made by IOTrenetics</div>', unsafe_allow_html=True)
     st.markdown('</div>', unsafe_allow_html=True)
 
-================ MAIN APP =================
+#================ MAIN APP =================
 else:
     st.title("🏥 Welcome to HealNet Dashboard")
     st.success("You are logged in!")
