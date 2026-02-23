@@ -286,7 +286,8 @@ label {
 }
 
 /* Improve small helper text */
-css-1cpxqw2, .css-10trblm {
+    .css-1cpxqw2, .css-10trblm {
+    padding-top: 2rem;
     color: #E2E8F0 !important;
 }
 
