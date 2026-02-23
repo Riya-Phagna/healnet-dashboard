@@ -172,6 +172,8 @@ else:
         st.rerun()
 
 # ===== Fix grey text visibility ===== 
+st.markdown("""
+<style>
 body, .stApp {
     color: white !important;
 }
