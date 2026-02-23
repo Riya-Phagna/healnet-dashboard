@@ -319,7 +319,7 @@ st.markdown(
     
   
     
-    /* ===== CRITICAL: FORCE TEXT VISIBILITY IN ALL COMPONENTS ===== */
+    #===== CRITICAL: FORCE TEXT VISIBILITY IN ALL COMPONENTS ===== 
     
     /* Metric boxes - force visible text */
     [data-testid="stMetricValue"],
