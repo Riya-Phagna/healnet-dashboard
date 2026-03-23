@@ -229,7 +229,7 @@ python test_vitals_mock.py
 
 ---
 ## output
-live link : https://healnet-ai.streamlit.app/
+
 ## 🏢 About
 
 Built as an internship project at **IoTrenetics Solutions Pvt. Ltd.**  
